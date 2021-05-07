@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+## <div align="center">On The Move</div>
+#### <div align="center">*Epicodus Capstone Project 05/07/2021*</div> 
+***<p align="center">By Levi Kohler***</p>
+<p align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+___
+### This project is not in a complete or portfolio ready state, and should not be considered as representation of professional work.
+___
+## *Description*    
+### *As of now the plan is to utilize Google Maps API to create a web application where users can input the name of a US city or zip code, indicate whether they plan to move to said city or just visit, and then receive relevant information. Ex; vacationing to a city would give you points of interest, popular tourist destinations, and possibly upcoming events. Moving to the city would give statistics like job growth, crime rate, median house cost etc.*
 
-## Available Scripts
+## *Resources*  
+* https://developers.google.com/maps/documentation/javascript/overview
+* https://www.youtube.com/watch?v=Alz13kGluL8
 
-In the project directory, you can run:
+## *Setup/Installation instructions*
+### *From the web*
+* Copy this repositories URL to your clipboard
+### *From the terminal*
+* Navigate to your desktop using the terminal or your preferred equivalent
+* Clone my repository from GitHub using `git clone https://github.com/levi-kohler/on-the-move` in your terminal or equivalent
+* Navigate to the downloaded folder using `cd` command
+* Execute the `code .` command in your terminal and it will open all source code in your code editor
 
-### `npm start`
+###  *View website*
+A GitHub page is not available for this project. To view functionality in your browser:
+* Navigate to the **'on-the-move'** folder in your terminal
+* Enter `npm install`
+* enter `npm run start`
+* Open your browser and visit http://localhost:3000
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## *Technologies used*
+* React
+* JSX
+* JavaScript
+* npm
+* webpack
+* ESLint
+* Babel
+* Google Maps API
+* Git & GitHub
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## *Known bugs*
+* No known bugs
 
-### `npm test`
+## Contact Information
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:kohler.la01+github@gmail.com)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## *License and copyright*
 
-### `npm run build`
+***© Levi Kohler, 2021***
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
