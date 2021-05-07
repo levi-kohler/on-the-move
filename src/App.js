@@ -79,7 +79,20 @@ class App extends React.Component {
           city = this.getCity(addressArray),
           area = this.getArea(addressArray),
           state = this.getSnapshotBeforeUpdate(addressArray)
-
+        this.setState({
+          address: (address) ? address : "",
+          area: (area) ? area : "",
+          city: (city) ? city : "",
+          state: (state) ? state : "",
+          markerPosition: {
+            lat: newLat,
+            lng: newLng
+          },
+          mapPosition: {
+            lat: newLat,
+            lng: newLng
+          },
+        })
     })
   }
   
@@ -87,12 +100,12 @@ class App extends React.Component {
     const MapWithAMarker = withScriptjs(withGoogleMap(props =>
       <GoogleMap
         defaultZoom={8}
-        defaultCenter={{ lat: -34.397, lng: 150.644 }}
+        defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
       >
         <Marker
         draggable={true}
         onDragEnd={this.onMarkerDragEnd}
-          position={{ lat: -34.397, lng: 150.644 }}
+          position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
         >
           <InfoWindow>
             <div>
