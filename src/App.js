@@ -16,7 +16,7 @@ class App extends React.Component {
   state = {
     address: '',
     city: '',
-    area: '',
+    county: '',
     state: '',
     zoom: 15,
     height: 400,
@@ -33,23 +33,19 @@ class App extends React.Component {
   getCity = (addressArray) => {
     let city = '';
     for (let i = 0; i < addressArray.length; i++) {
-      if (addressArray[i].types[0] && 'administrative_area_level_2' === addressArray[i].types[0]) {
+      if (addressArray[i].types[0] && 'locality' === addressArray[i].types[0]) {
         city = addressArray[i].long_name;
         return city;
       }
     }
   }
 
-  getArea = (addressArray) => {
-    let area = '';
+  getCounty = (addressArray) => {
+    let county = '';
     for (let i = 0; i < addressArray.length; i++) {
-      if (addressArray[i].types[0]) {
-        for (let j = 0; j < addressArray.length; j++) {
-          if ('sublocality_level_1' === addressArray[i].types[j] || 'locality' === addressArray[i].types[j]) {
-            area = addressArray[i].long_name;
-            return area;
-          }
-        }
+      if (addressArray[i].types[0] && 'administrative_area_level_2' === addressArray[i].types[0]) {
+        county = addressArray[i].long_name;
+        return county;
       }
     }
   }
@@ -66,7 +62,6 @@ class App extends React.Component {
     }
   }
 
-
   onMarkerDragEnd = (event) => {
 
     let newLat = event.latLng.lat();
@@ -79,12 +74,12 @@ class App extends React.Component {
         const address = response.results[0].formatted_address,
           addressArray = response.results[0].address_components,
           city = this.getCity(addressArray),
-          area = this.getArea(addressArray),
+          county = this.getCounty(addressArray),
           state = this.getState(addressArray)
 
         this.setState({
           address: (address) ? address : "",
-          area: (area) ? area : "",
+          county: (county) ? county : "",
           city: (city) ? city : "",
           state: (state) ? state : "",
           markerPosition: {
@@ -120,12 +115,11 @@ class App extends React.Component {
     ));
 
     return (
-
       <div style={{ padding: '1rem', margin: '0 auto', maxWidth: 1000 }}>
         <h1>Basic City Info</h1>
         <Descriptions bordered>
           <Descriptions.Item label="City">{this.state.city}</Descriptions.Item>
-          <Descriptions.Item label="Area">{this.state.area}</Descriptions.Item>
+          <Descriptions.Item label="County">{this.state.county}</Descriptions.Item>
           <Descriptions.Item label="State">{this.state.state}</Descriptions.Item>
           <Descriptions.Item label="Address">{this.state.address}</Descriptions.Item>
         </Descriptions>
