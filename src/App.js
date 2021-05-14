@@ -31,7 +31,7 @@ class App extends React.Component {
 
   getCity = (addressArray) => {
     let city = '';
-    for(let i = 0; i < addressArray.length; i++) {
+    for (let i = 0; i < addressArray.length; i++) {
       if (addressArray[i].types[0] && 'administrative_area_level_2' === addressArray[i].types[0]) {
         city = addressArray[i].long_name;
         return city;
@@ -41,10 +41,10 @@ class App extends React.Component {
 
   getArea = (addressArray) => {
     let area = '';
-    for(let i = 0; i < addressArray.length; i++) {
+    for (let i = 0; i < addressArray.length; i++) {
       if (addressArray[i].types[0]) {
-        for(let j = 0; j< addressArray.length; j++) {
-          if('sublocality_level_1' === addressArray[i].types[j] || 'locality' === addressArray[i].types[j]) {
+        for (let j = 0; j < addressArray.length; j++) {
+          if ('sublocality_level_1' === addressArray[i].types[j] || 'locality' === addressArray[i].types[j]) {
             area = addressArray[i].long_name;
             return area;
           }
@@ -55,9 +55,9 @@ class App extends React.Component {
 
   getState = (addressArray) => {
     let state = '';
-    for(let i = 0; i < addressArray.length; i++) {
-      for(let i = 0; i < addressArray.length; i++) {
-        if(addressArray[i].types[0] && 'administrative_area_1' === addressArray[i].types[0]) {
+    for (let i = 0; i < addressArray.length; i++) {
+      for (let i = 0; i < addressArray.length; i++) {
+        if (addressArray[i].types[0] && 'administrative_area_level_1' === addressArray[i].types[0]) {
           state = addressArray[i].long_name;
           return state;
         }
@@ -72,13 +72,15 @@ class App extends React.Component {
     let newLng = event.latLng.lng();
 
     GeoCode.fromLatLng(newLat, newLng)
-    .then(response => {
+      .then(response => {
+        console.log('response', response)
 
-      const address = response.results[0].formatted_address,
-          addressArray = response.result[0].address_components,
+        const address = response.results[0].formatted_address,
+          addressArray = response.results[0].address_components,
           city = this.getCity(addressArray),
           area = this.getArea(addressArray),
-          state = this.getSnapshotBeforeUpdate(addressArray)
+          state = this.getState(addressArray)
+
         this.setState({
           address: (address) ? address : "",
           area: (area) ? area : "",
@@ -93,9 +95,9 @@ class App extends React.Component {
             lng: newLng
           },
         })
-    })
+      })
   }
-  
+
   render() {
     const MapWithAMarker = withScriptjs(withGoogleMap(props =>
       <GoogleMap
@@ -103,8 +105,8 @@ class App extends React.Component {
         defaultCenter={{ lat: this.state.mapPosition.lat, lng: this.state.mapPosition.lng }}
       >
         <Marker
-        draggable={true}
-        onDragEnd={this.onMarkerDragEnd}
+          draggable={true}
+          onDragEnd={this.onMarkerDragEnd}
           position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
         >
           <InfoWindow>
@@ -115,8 +117,8 @@ class App extends React.Component {
         </Marker>
       </GoogleMap>
     ));
-  
-    return ( 
+
+    return (
       <MapWithAMarker
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=API_KEY&v=3.exp&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: `100%` }} />}
