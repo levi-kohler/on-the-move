@@ -7,6 +7,7 @@ import {
   Marker,
 } from "react-google-maps";
 import GeoCode from "react-geocode";
+import { Descriptions } from 'antd';
 
 GeoCode.setApiKey("API_KEY")
 
@@ -119,12 +120,25 @@ class App extends React.Component {
     ));
 
     return (
-      <MapWithAMarker
-        googleMapURL="https://maps.googleapis.com/maps/api/js?key=API_KEY&v=3.exp&libraries=geometry,drawing,places"
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
+
+      <div>
+        <Descriptions title="User Info" bordered>
+          <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+          <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
+          <Descriptions.Item label="Automatic Renewal">YES</Descriptions.Item>
+          <Descriptions.Item label="Order time">2018-04-24 18:00:00</Descriptions.Item>
+          <Descriptions.Item label="Usage Time" span={2}>
+            2019-04-24 18:00:00
+          </Descriptions.Item>
+        </Descriptions>
+
+        <MapWithAMarker
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=API_KEY&v=3.exp&libraries=geometry,drawing,places"
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `400px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+      </div>
     );
   }
 }
