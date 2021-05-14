@@ -11,7 +11,7 @@ ___
 
 ## *Resources*  
 * https://developers.google.com/maps/documentation/javascript/overview
-* https://www.youtube.com/watch?v=Alz13kGluL8  (stopped at 36 minutes)
+* https://www.youtube.com/watch?v=Alz13kGluL8  (stopped at 40 minutes)
 
 ## *Setup/Installation instructions*
 ### *From the web*
