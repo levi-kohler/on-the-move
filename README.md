@@ -38,6 +38,7 @@ A GitHub page is not available for this project. To view functionality in your b
 * ESLint
 * Babel
 * Google Maps API
+* Ant Design
 * Git & GitHub
 
 ## *Known bugs*
