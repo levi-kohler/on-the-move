@@ -114,7 +114,7 @@ class App extends React.Component {
         </Marker>
 
         <AutoComplete
-
+          style={{ width: '100%', height: '40px', paddingLeft: 16, marginTop: 2, marginBottom: '2rem' }}
         />
 
       </GoogleMap>
