@@ -8,6 +8,7 @@ import {
 } from "react-google-maps";
 import GeoCode from "react-geocode";
 import { Descriptions } from 'antd';
+import AutoComplete from 'react-google-autocomplete';
 
 GeoCode.setApiKey("API_KEY")
 
