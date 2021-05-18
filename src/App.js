@@ -112,6 +112,11 @@ class App extends React.Component {
             </div>
           </InfoWindow>
         </Marker>
+
+        <AutoComplete
+
+        />
+
       </GoogleMap>
     ));
 
