@@ -68,10 +68,8 @@ class App extends React.Component {
     let newLat = event.latLng.lat();
     let newLng = event.latLng.lng();
 
-    GeoCode.fromLatLng(newLat, newLng)
-      .then(response => {
-        console.log('response', response)
-
+    GeoCode.fromLatLng(newLat, newLng).then(
+      response => {
         const address = response.results[0].formatted_address,
           addressArray = response.results[0].address_components,
           city = this.getCity(addressArray),
@@ -92,8 +90,33 @@ class App extends React.Component {
             lng: newLng
           },
         })
-      })
-  }
+      });
+  };
+
+  onPlaceSelected = (place) => {
+    const address = place.formatted_address,
+      addressArray = place.address_components,
+      city = this.getCity(addressArray),
+      county = this.getCounty(addressArray),
+      state = this.getState(addressArray),
+      latValue = place.geometry.location.lat(),
+      lngValue = place.geometry.location.lng();
+
+    this.setState({
+      address: (address) ? address : "",
+      county: (county) ? county : "",
+      city: (city) ? city : "",
+      state: (state) ? state : "",
+      markerPosition: {
+        lat: latValue,
+        lng: lngValue
+      },
+      mapPosition: {
+        lat: latValue,
+        lng: lngValue
+      },
+    })
+  };
 
   render() {
     const MapWithAMarker = withScriptjs(withGoogleMap(props =>
@@ -115,6 +138,9 @@ class App extends React.Component {
 
         <AutoComplete
           style={{ width: '100%', height: '40px', paddingLeft: 16, marginTop: 2, marginBottom: '2rem' }}
+          types={['(regions)']}
+          onPlaceSelected={this.onPlaceSelected}
+
         />
 
       </GoogleMap>
