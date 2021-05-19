@@ -31,6 +31,24 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.setState({
+          mapPosition: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          },
+          markerPosition: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          }
+        })
+      })
+    }
+  }
+
   getCity = (addressArray) => {
     let city = '';
     for (let i = 0; i < addressArray.length; i++) {
