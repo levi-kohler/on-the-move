@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  InfoWindow,
   withScriptjs,
   withGoogleMap,
   GoogleMap,
@@ -147,11 +146,6 @@ class App extends React.Component {
           onDragEnd={this.onMarkerDragEnd}
           position={{ lat: this.state.markerPosition.lat, lng: this.state.markerPosition.lng }}
         >
-          <InfoWindow>
-            <div>
-              hello
-            </div>
-          </InfoWindow>
         </Marker>
 
         <AutoComplete
